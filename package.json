@@ -1,0 +1,73 @@
+{
+  "version": "0.1.0",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build",
+    "size": "size-limit",
+    "analyze": "size-limit --why",
+    "docs": "typedoc src/index.ts --readme"
+  },
+  "peerDependencies": {},
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
+    }
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "name": "geohashes-clusterer",
+  "author": "Alberto Rico",
+  "description": "Helper functions to cluster geohashes based on their values",
+  "module": "dist/geohash-clusterer.esm.js",
+  "size-limit": [
+    {
+      "path": "dist/geohash-clusterer.cjs.production.min.js",
+      "limit": "10 KB"
+    },
+    {
+      "path": "dist/geohash-clusterer.esm.js",
+      "limit": "10 KB"
+    }
+  ],
+  "devDependencies": {
+    "@size-limit/preset-small-lib": "^4.9.2",
+    "@types/geojson": "^7946.0.7",
+    "@types/lodash": "^4.14.168",
+    "@types/ngeohash": "^0.6.2",
+    "@typescript-eslint/eslint-plugin": "^4.15.2",
+    "@typescript-eslint/parser": "^4.15.2",
+    "eslint": "^7.20.0",
+    "eslint-config-prettier": "^8.1.0",
+    "husky": "^5.1.1",
+    "size-limit": "^4.9.2",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.1.0",
+    "typedoc": "^0.20.28",
+    "typedoc-plugin-markdown": "^3.5.0",
+    "typescript": "^4.2.2"
+  },
+  "dependencies": {
+    "@turf/helpers": "^6.3.0",
+    "@turf/union": "^6.3.0",
+    "geohash-to-geojson": "^2.1.0",
+    "lodash": "^4.17.21",
+    "ngeohash": "^0.6.3"
+  }
+}
